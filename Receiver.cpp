@@ -2,7 +2,12 @@
 #include <string>
 using namespace std;
 
+#include "funR.h"
+
 int main(){
+
+    int x = funR(3);
+    cout<<x<<endl;
 
     string numberOfDaysString;
     getline(cin, numberOfDaysString);
