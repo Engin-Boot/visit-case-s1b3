@@ -1,22 +1,23 @@
 #include <iostream>
 #include <string>
-using namespace std;
-
 #include "funR.h"
 
-int main(){
+using namespace std;
 
-    int x = funR(3);
-    cout<<x<<endl;
+int main()
+{
 
     string numberOfDaysString;
     getline(cin, numberOfDaysString);
     int numberOfDays = stoi(numberOfDaysString);
-    for(int i=0; i<numberOfDays; i++){
+    for (int i = 0; i < numberOfDays; i++)
+    {
         string dailyEntry;
         getline(cin, dailyEntry);
-        cout<<dailyEntry<<endl;
+        cout << dailyEntry << endl;
     }
-    cout<<numberOfDays<<endl;
+    cout << numberOfDays << endl;
+    int x = funR(2);
+    cout << x << endl;
     return 0;
 }

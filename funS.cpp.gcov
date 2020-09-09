@@ -1,0 +1,11 @@
+        -:    0:Source:funS.cpp
+        -:    1:#include "funS.h"
+        -:    2:
+    #####:    3:int funS(int x){
+    #####:    4:    if(x==0){
+    #####:    5:        return 0;
+    #####:    6:    }else if(x==1){
+    #####:    7:        return 1;
+        -:    8:    }
+    #####:    9:    return 2;
+        -:   10:}

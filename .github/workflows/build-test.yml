@@ -21,7 +21,7 @@ jobs:
       run: g++ -Wall -Wextra -Werror --coverage -o receiver-test Receiver-test.cpp funR.cpp && g++ -Wall -Wextra -Werror --coverage -o sender-test Sender-test.cpp funS.cpp && g++ -Wall -Wextra -Werror --coverage -o receiver Receiver.cpp && g++ -Wall -Wextra -Werror --coverage -o sender Sender.cpp
       
     - name: static analysis
-      run: cppcheck --enable=all --error-exitcode=1 -iReceiver-test.cpp -iSender-test.cpp .
+      run: cppcheck --enable=all --error-exitcode=1 -iReceiver-test.cpp -iSender-test.cpp . 
       
     - name: run-test
       run: ./sender-test && ./receiver-test
