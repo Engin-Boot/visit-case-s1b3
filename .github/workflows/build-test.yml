@@ -17,17 +17,20 @@ jobs:
     - name: install cppcheck static analysis
       run: sudo apt-get update && sudo apt-get install -y cppcheck
       
-    - name: build
-      run: g++ -Wall -Wextra -Werror --coverage -o receiver-test Receiver-test.cpp funR.cpp && g++ -Wall -Wextra -Werror --coverage -o sender-test Sender-test.cpp funS.cpp && g++ -Wall -Wextra -Werror --coverage -o receiver Receiver.cpp funR.cpp && g++ -Wall -Wextra -Werror --coverage -o sender Sender.cpp funS.cpp
-      
+    - name: build-test
+      run: g++ -Wall -Wextra -Werror --coverage -o receiver-test Receiver-test.cpp DailyDataEntry.cpp StatsCalculator.cpp WriteCSV.cpp
+
+    - name: build-main
+      run: g++ -Wall -Wextra -Werror -o sender Sender.cpp && g++ -Wall -Wextra -Werror -o receiver Receiver.cpp DailyDataEntry.cpp StatsCalculator.cpp WriteCSV.cpp
+
     - name: static analysis
-      run: cppcheck --enable=all --error-exitcode=1 -iReceiver-test.cpp -iSender-test.cpp . 
+      run: cppcheck --enable=all --error-exitcode=1 -iReceiver-test.cpp . 
       
     - name: run-test
-      run: ./sender-test && ./receiver-test
+      run: ./receiver-test
     
     - name: coverage report
-      run: gcov -r Receiver-test.cpp funR.cpp Sender-test.cpp funS.cpp
+      run: gcov -r Receiver-test.cpp WriteCSV.cpp DailyDataEntry.cpp StatsCalculator.cpp
 
     - name: run
       run: ./sender|./receiver
