@@ -1,8 +1,6 @@
-Peak daily footfall in the last month
 Date,Peak Footfall
 2020-11-21,272
 
-Average daily footfalls in a week
 Day,Daily Avearge
 Sunday,241
 Monday,251
@@ -12,7 +10,6 @@ Thrusday,250
 Friday,242
 Saturday,254
 
-Average footfalls per hour shown over a day(12 working hours)
 Date,Hourly Avearge
 2020-11-01,19
 2020-11-02,20
