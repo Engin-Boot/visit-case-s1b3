@@ -8,20 +8,20 @@
 
 using namespace std;
 
-// TEST_CASE("when there is no valid input then receiver throws exception")
-// {
-//     DailyDataEntry y;
+TEST_CASE("when there is no valid input then receiver throws exception")
+{
+    DailyDataEntry y;
 
-//     vector< vector<string> > mockSenderData {{}};
+    vector<vector<string>> mockSenderData;
 
-//     REQUIRE_THROWS_AS(y.getDailyDataEntryFromSender(mockSenderData), std::runtime_error);
-// }
+    REQUIRE_THROWS_AS(y.getDailyDataEntryFromSender(mockSenderData), std::runtime_error);
+}
 
 TEST_CASE("when there is valid input then receiver receives all data and store it in a vector")
-{   
+{
     DailyDataEntry y;
-    
-    vector< vector<string> > mockSenderData {{"1/1/2020", "3", "23"}, {"2/1/2020", "4", "25"}};
+
+    vector<vector<string>> mockSenderData{{"1/1/2020", "3", "23"}, {"2/1/2020", "4", "25"}};
 
     vector<DailyDataEntry> x = y.getDailyDataEntryFromSender(mockSenderData);
     REQUIRE(x[0].getDate() == "1/1/2020");
@@ -33,7 +33,7 @@ TEST_CASE("when there is valid input then receiver receives all data and store i
 }
 
 TEST_CASE("when a string with 4 words separated by single space is passed in splitStringBySpaces() then it returns a vector containing same 4 words")
-{   
+{
     vector<string> x = splitStringBySpaces("Hi, I am Nishit");
     REQUIRE(x[0] == "Hi,");
     REQUIRE(x[1] == "I");
