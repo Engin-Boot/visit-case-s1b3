@@ -8,13 +8,20 @@
 
 using namespace std;
 
-// TEST_CASE("test2")
+// TEST_CASE("when there is no valid input then receiver throws exception")
 // {
-//     // DailyDataEntry y;
-//     // vector<DailyDataEntry> x = y.getDailyDataEntryFromSender();
-//     // REQUIRE(x[0].getDate() == "1/1/2020");
-//     // REQUIRE(x[0].getDay() == 0);
-//     // REQUIRE(x[0].getNumberOfEntries() == 23);
+//     DailyDataEntry y;
+
+//     REQUIRE_THROWS_AS(y.getDailyDataEntryFromSender(), std::runtime_error);
+// }
+
+// TEST_CASE("when there is valid input then receiver receives all data and store it in a vector")
+// {
+//     DailyDataEntry y;
+//     vector<DailyDataEntry> x = y.getDailyDataEntryFromSender();
+//     REQUIRE(x[0].getDate() == "1/1/2020");
+//     REQUIRE(x[0].getDay() == 0);
+//     REQUIRE(x[0].getNumberOfEntries() == 23);
 // }
 
 TEST_CASE("when a string with 4 words separated by single space is passed in splitStringBySpaces() then it returns a vector containing same 4 words")
