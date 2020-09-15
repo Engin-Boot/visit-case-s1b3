@@ -1,6 +1,5 @@
 #include "SendData.h"
 
-
 // Parameterized constructor which takes the reference to a vector that holds the row data of a csv file as a string
 SendData ::SendData(const vector<string> &data) : csvData(data) {}
 
@@ -52,12 +51,6 @@ vector<int> SendData ::getDays(vector<string> dates)
     return allDays;
 }
 
-// Member function which returns the number of working days for which data has been recorded that are present in the csv file
-int SendData ::getNumberOfDays()
-{
-    return csvData.size() - 1;
-}
-
 // Member function that returns the summation of the elements in an integer vector
 int SendData ::summation(vector<int> arr)
 {
@@ -105,7 +98,6 @@ vector<string> SendData ::toString(const vector<string> &dataList)
     vector<int> days = getDays(dates);
     vector<int> total = getTotalVisitsPerDay(dataList);
 
-    finalOutput.push_back(to_string(getNumberOfDays()));
     for (int i = 0; i < int(dates.size()); i++)
     {
         string row = dates.at(i) + " " + to_string(days.at(i)) + " " + to_string(total.at(i));

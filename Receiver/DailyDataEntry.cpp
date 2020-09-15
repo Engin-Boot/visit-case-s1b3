@@ -58,39 +58,29 @@ int DailyDataEntry::getNumberOfEntries() { return numberOfEntries; }
 //vector has all the data needed for calculating aggregates
 vector<DailyDataEntry> DailyDataEntry::getDailyDataEntryFromSender()
 {
-    string numberOfWorkingDays_string;
-    getline(cin, numberOfWorkingDays_string);
+    //declare vector of DailtDataEntry type
+    vector<DailyDataEntry> monthlyEntryData;
 
-    int numberOfWorkingDays = stoi(numberOfWorkingDays_string);
+    string singleDayEntry_string;
 
-    //initialize vector of DailtDataEntry type
-    vector<DailyDataEntry> monthlyEntryData(numberOfWorkingDays);
-
-    if (numberOfWorkingDays > 0)
+    while (getline(cin, singleDayEntry_string))
     {
-        for (int i_singleDayEntry = 0; i_singleDayEntry < numberOfWorkingDays; i_singleDayEntry++)
-        {
-            string singleDayEntry_string;
 
-            //get single day data from console
-            getline(cin, singleDayEntry_string);
+        //get single day data from console
+        getline(cin, singleDayEntry_string);
 
-            //split string to fetch date, day, numberOfEntries
-            vector<string> splitted_singleDayEntry_string = splitStringBySpaces(singleDayEntry_string);
+        //split string to fetch date, day, numberOfEntries
+        vector<string> splitted_singleDayEntry_string = splitStringBySpaces(singleDayEntry_string);
 
-            //create object of DailyDataEntry
-            DailyDataEntry data(
-                splitted_singleDayEntry_string[0],
-                stoi(splitted_singleDayEntry_string[1]),
-                stoi(splitted_singleDayEntry_string[2]));
+        //create object of DailyDataEntry
+        DailyDataEntry data(
+            splitted_singleDayEntry_string[0],
+            stoi(splitted_singleDayEntry_string[1]),
+            stoi(splitted_singleDayEntry_string[2]));
 
-            //write single day data (DailyDataEntry object) into vector
-            monthlyEntryData[i_singleDayEntry] = (data);
-        }
-    }
-    else
-    {
-        throw runtime_error("No valid Input");
+        //write single day data (DailyDataEntry object) into vector
+        // monthlyEntryData[i_singleDayEntry] = (data);
+        monthlyEntryData.push_back(data);
     }
 
     //return vector having all sender data

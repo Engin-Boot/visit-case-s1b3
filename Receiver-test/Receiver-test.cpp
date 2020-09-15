@@ -17,6 +17,7 @@ using namespace std;
 
 // TEST_CASE("when there is valid input then receiver receives all data and store it in a vector")
 // {
+//     cout<<"1/1/2020 0 23"<<endl;
 //     DailyDataEntry y;
 //     vector<DailyDataEntry> x = y.getDailyDataEntryFromSender();
 //     REQUIRE(x[0].getDate() == "1/1/2020");

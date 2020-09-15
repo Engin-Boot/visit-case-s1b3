@@ -77,16 +77,6 @@ TEST_CASE("When we pass a vector of string where each string is a date of the fo
     REQUIRE(days[2] == 0);
 }
 
-TEST_CASE("When we send a csv file with each row having Date,entry1,entry2,entry3 ..... , the function returns the number of working days")
-{
-
-    string inputCSV = "test-input.csv";
-    ReadCSV reader(inputCSV, ",");
-    vector<string> dataList = reader.readCSVData();
-    SendData sender(dataList);
-    REQUIRE(sender.getNumberOfDays() == 3);
-}
-
 TEST_CASE("Given a vector which contains integers, the function returns the sum of all the integers")
 {
 
@@ -120,8 +110,7 @@ TEST_CASE("Given a csv file which has a format of date, entry1, entry2, entry3 .
     vector<string> dataList = reader.readCSVData();
     SendData sender(dataList);
     vector<string> finalAns = sender.toString(dataList);
-    REQUIRE(finalAns[0] == "3");
-    REQUIRE(finalAns[1] == "1998-12-21 1 6");
-    REQUIRE(finalAns[2] == "1996-11-05 2 12");
-    REQUIRE(finalAns[3] == "2020-09-13 0 45");
+    REQUIRE(finalAns[0] == "1998-12-21 1 6");
+    REQUIRE(finalAns[1] == "1996-11-05 2 12");
+    REQUIRE(finalAns[2] == "2020-09-13 0 45");
 }
