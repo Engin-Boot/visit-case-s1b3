@@ -5,6 +5,7 @@
 vector<string> splitStringBySpaces(string str)
 {
     //declaration of empty vector
+    //will contain words
     vector<string> singleDayEntry;
 
     //initialized new word
@@ -23,7 +24,7 @@ vector<string> splitStringBySpaces(string str)
             //pushing single word of input string into vector
             singleDayEntry.push_back(word);
 
-            //initialized new word
+            //initialized next new word
             word = "";
         }
     }
@@ -31,6 +32,7 @@ vector<string> splitStringBySpaces(string str)
     //pushing single word of input string into vector
     singleDayEntry.push_back(word);
 
+    //return vector of words
     return singleDayEntry;
 }
 
@@ -38,6 +40,7 @@ vector<string> splitStringBySpaces(string str)
 DailyDataEntry::DailyDataEntry() {}
 
 //parameterized constructor
+//initialize data member
 DailyDataEntry::DailyDataEntry(const string &date, int day, int numberOfEntries)
     : date(date), day(day), numberOfEntries(numberOfEntries) {}
 
@@ -57,28 +60,33 @@ vector<DailyDataEntry> DailyDataEntry::getDailyDataEntryFromSender()
 {
     string numberOfWorkingDays_string;
     getline(cin, numberOfWorkingDays_string);
-
+    
+    //number of lines to be print to console by the sender
     int numberOfWorkingDays = stoi(numberOfWorkingDays_string);
 
+    //initialize vector of DailtDataEntry type
     vector<DailyDataEntry> monthlyEntryData(numberOfWorkingDays);
 
     for (int i_singleDayEntry = 0; i_singleDayEntry < numberOfWorkingDays; i_singleDayEntry++)
     {
         string singleDayEntry_string;
+
+        //get single day data from console
         getline(cin, singleDayEntry_string);
 
-        //splitting string to fetch date, day, entries
+        //split string to fetch date, day, numberOfEntries
         vector<string> splitted_singleDayEntry_string = splitStringBySpaces(singleDayEntry_string);
 
-        //creating object of DailyDataEntry
+        //create object of DailyDataEntry
         DailyDataEntry data(
             splitted_singleDayEntry_string[0],
             stoi(splitted_singleDayEntry_string[1]),
             stoi(splitted_singleDayEntry_string[2]));
 
-        //pushing single day data into vector
+        //write single day data (DailyDataEntry object) into vector
         monthlyEntryData[i_singleDayEntry] = (data);
     }
 
+    //return vector having all sender data
     return monthlyEntryData;
 }
