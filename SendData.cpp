@@ -1,7 +1,10 @@
 #include "SendData.h"
 
+
+// Parameterized constructor which takes the reference to a vector that holds the row data of a csv file as a string
 SendData ::SendData(const vector<string> &data) : csvData(data) {}
 
+// Member function which returns a vector of all the dates in the csv file
 vector<string> SendData ::getDates()
 {
 
@@ -12,6 +15,9 @@ vector<string> SendData ::getDates()
     return allDates;
 }
 
+// Member function which takes three inputs (date, month , year) and outputs an integer value which corresponds to the day of the week
+// This function will return
+// 0 - Sunday, 1 - Monday, 2 - Tuesday, .... 6 - Saturday
 int SendData ::dayOfWeek(int d, int m, int y)
 {
 
@@ -22,6 +28,7 @@ int SendData ::dayOfWeek(int d, int m, int y)
     return ans;
 }
 
+// Member function which compiles all the integer values represnting the days in a vector form
 vector<int> SendData ::getDays(vector<string> dates)
 {
     for (int i = 0; i < int(dates.size()); i++)
@@ -45,11 +52,13 @@ vector<int> SendData ::getDays(vector<string> dates)
     return allDays;
 }
 
+// Member function which returns the number of working days for which data has been recorded that are present in the csv file
 int SendData ::getNumberOfDays()
 {
     return csvData.size() - 1;
 }
 
+// Member function that returns the summation of the elements in an integer vector
 int SendData ::summation(vector<int> arr)
 {
     int ans = 0;
@@ -60,6 +69,7 @@ int SendData ::summation(vector<int> arr)
     return ans;
 }
 
+// Member function which calculates the total visits per day and stores it in a vector
 vector<int> SendData ::getTotalVisitsPerDay(vector<string> dates)
 {
 
@@ -86,6 +96,9 @@ vector<int> SendData ::getTotalVisitsPerDay(vector<string> dates)
     return totalVisitsPerDay;
 }
 
+// Member function which stores the final output that the sender will send to the pipeline. 
+// The format of each string that is appended into the vector is as follows :
+// "yyyy-mm-dd day_value_in_int total_visits_in_that_day"
 vector<string> SendData ::toString(const vector<string> &dataList)
 {
     vector<string> dates = getDates();
