@@ -56,30 +56,23 @@ int DailyDataEntry::getNumberOfEntries() { return numberOfEntries; }
 //read all the sender data from the console
 //return a vector of DailyDataEntry object type
 //vector has all the data needed for calculating aggregates
-vector<DailyDataEntry> DailyDataEntry::getDailyDataEntryFromSender()
+vector<DailyDataEntry> DailyDataEntry::getDailyDataEntryFromSender(const vector<vector<string>> &senderData)
 {
-    //declare vector of DailtDataEntry type
+    //number of input strings
+    unsigned int n = senderData.size();
+
+    //declare vector of DailtDataEntry type of n size
     vector<DailyDataEntry> monthlyEntryData;
 
-    string singleDayEntry_string;
-
-    while (getline(cin, singleDayEntry_string))
+    for (unsigned int i_singleDayEntry = 0; i_singleDayEntry < n; i_singleDayEntry++)
     {
 
-        //get single day data from console
-        getline(cin, singleDayEntry_string);
-
-        //split string to fetch date, day, numberOfEntries
-        vector<string> splitted_singleDayEntry_string = splitStringBySpaces(singleDayEntry_string);
-
-        //create object of DailyDataEntry
-        DailyDataEntry data(
-            splitted_singleDayEntry_string[0],
-            stoi(splitted_singleDayEntry_string[1]),
-            stoi(splitted_singleDayEntry_string[2]));
+        //create a DailyDataEntry object having date day numberOfEntries
+        DailyDataEntry data(senderData.at(i_singleDayEntry).at(0),
+                            stoi(senderData.at(i_singleDayEntry).at(1)),
+                            stoi(senderData.at(i_singleDayEntry).at(2)));
 
         //write single day data (DailyDataEntry object) into vector
-        // monthlyEntryData[i_singleDayEntry] = (data);
         monthlyEntryData.push_back(data);
     }
 

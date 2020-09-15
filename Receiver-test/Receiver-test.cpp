@@ -12,21 +12,28 @@ using namespace std;
 // {
 //     DailyDataEntry y;
 
-//     REQUIRE_THROWS_AS(y.getDailyDataEntryFromSender(), std::runtime_error);
+//     vector< vector<string> > mockSenderData {{}};
+
+//     REQUIRE_THROWS_AS(y.getDailyDataEntryFromSender(mockSenderData), std::runtime_error);
 // }
 
-// TEST_CASE("when there is valid input then receiver receives all data and store it in a vector")
-// {
-//     cout<<"1/1/2020 0 23"<<endl;
-//     DailyDataEntry y;
-//     vector<DailyDataEntry> x = y.getDailyDataEntryFromSender();
-//     REQUIRE(x[0].getDate() == "1/1/2020");
-//     REQUIRE(x[0].getDay() == 0);
-//     REQUIRE(x[0].getNumberOfEntries() == 23);
-// }
+TEST_CASE("when there is valid input then receiver receives all data and store it in a vector")
+{   
+    DailyDataEntry y;
+    
+    vector< vector<string> > mockSenderData {{"1/1/2020", "3", "23"}, {"2/1/2020", "4", "25"}};
+
+    vector<DailyDataEntry> x = y.getDailyDataEntryFromSender(mockSenderData);
+    REQUIRE(x[0].getDate() == "1/1/2020");
+    REQUIRE(x[0].getDay() == 3);
+    REQUIRE(x[0].getNumberOfEntries() == 23);
+    REQUIRE(x[1].getDate() == "2/1/2020");
+    REQUIRE(x[1].getDay() == 4);
+    REQUIRE(x[1].getNumberOfEntries() == 25);
+}
 
 TEST_CASE("when a string with 4 words separated by single space is passed in splitStringBySpaces() then it returns a vector containing same 4 words")
-{
+{   
     vector<string> x = splitStringBySpaces("Hi, I am Nishit");
     REQUIRE(x[0] == "Hi,");
     REQUIRE(x[1] == "I");

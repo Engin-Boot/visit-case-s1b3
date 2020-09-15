@@ -21,7 +21,7 @@ public:
     int getDay();
     int getNumberOfEntries();
 
-    vector<DailyDataEntry> getDailyDataEntryFromSender();
+    vector<DailyDataEntry> getDailyDataEntryFromSender(const vector< vector<string> >&);
 };
 
 //helper method
