@@ -2,7 +2,7 @@
 #include "../Sender/ReadCSV.h"
 #include "../Sender/SendData.h"
 #include <iostream>
-#include "catch.hpp"
+#include "../catch.hpp"
 #include <string>
 #include <vector>
 

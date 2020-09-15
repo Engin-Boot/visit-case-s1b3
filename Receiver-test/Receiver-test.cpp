@@ -1,5 +1,5 @@
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include "../catch.hpp"
 #include <string>
 #include "../Receiver/DailyDataEntry.h"
 #include "../Receiver/WriteCSV.h"
