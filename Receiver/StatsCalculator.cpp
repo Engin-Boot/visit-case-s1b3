@@ -120,14 +120,12 @@ string StatsCalculator::toString()
     string allStatsData = "";
 
     //add Peak daily footfall in the last month data
-    allStatsData = allStatsData + "Peak daily footfall in the last month\n";
 
     allStatsData = allStatsData + "Date" + "," + "Peak Footfall" + "\n";
 
     allStatsData = allStatsData + peakFootfallInLastMonth.first + "," + to_string(peakFootfallInLastMonth.second) + "\n\n";
 
     //add Average daily footfalls in a week data
-    allStatsData = allStatsData + "Average daily footfalls in a week\n";
 
     allStatsData = allStatsData + "Day" + "," + "Daily Avearge" + "\n";
 
@@ -137,9 +135,8 @@ string StatsCalculator::toString()
     }
 
     //add Average footfalls per hour shown over a day data
-    allStatsData = allStatsData + "\nAverage footfalls per hour shown over a day(" + to_string(working_hours) + " working hours)\n";
 
-    allStatsData = allStatsData + "Date" + "," + "Hourly Avearge" + "\n";
+    allStatsData = allStatsData + "\nDate" + "," + "Hourly Avearge" + "\n";
 
     for (int i_singleDayEntry = 0; i_singleDayEntry < workingDays; i_singleDayEntry++)
     {

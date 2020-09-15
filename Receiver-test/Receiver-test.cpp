@@ -287,15 +287,14 @@ TEST_CASE("when all aggregates data is to be converted to csv format by toString
 
     string testString = testStats.toString();
 
-    string mockString = "Peak daily footfall in the last month\n";
+    string mockString = "";
     mockString = mockString + "Date,Peak Footfall\n";
     mockString = mockString + "05/01/2020,40\n\n";
 
-    mockString = mockString + "Average daily footfalls in a week\n";
     mockString = mockString + "Day,Daily Avearge\n";
     mockString = mockString + "Sunday,40\nMonday,0\nTuesday,0\nWednesday,0\nThrusday,34\nFriday,20\nSaturday,25\n";
 
-    mockString = mockString + "\nAverage footfalls per hour shown over a day(" + to_string(working_hours) + " working hours)\n";
+    mockString = mockString + "\n";
     mockString = mockString + "Date,Hourly Avearge\n";
     mockString = mockString + "02/01/2020,3\n03/01/2020,2\n04/01/2020,2\n05/01/2020,3\n";
 
