@@ -19,19 +19,13 @@ int SendData ::dayOfWeek(int d, int m, int y)
     y -= m < 3;
     int ans = (y + y / 4 - y / 100 + y / 400 + t[m - 1] + d) % 7;
 
-    if (ans == 0)
-    {
-        return 6;
-    }
-    return ans - 1;
+    return ans;
 }
 
 vector<int> SendData ::getDays(vector<string> dates)
 {
-
     for (int i = 0; i < int(dates.size()); i++)
     {
-
         vector<int> y_m_d;
         string delimiter = "-";
         size_t pos = 0;
@@ -92,21 +86,8 @@ vector<int> SendData ::getTotalVisitsPerDay(vector<string> dates)
     return totalVisitsPerDay;
 }
 
-// void SendData :: toConsole(vector<string> dataList){
-
-//     cout << "Number of rows in csv file = " <<dataList.size() << endl ;
-//     vector<string> dates = getDates() ;
-//     vector<int> days = getDays(dates) ;
-//     vector<int> total = getTotalVisitsPerDay(dataList) ;
-
-//     for(int i = 0 ; i < int(dates.size()) ; i ++){
-//        cout << dates.at(i) << " " << days.at(i) << " " << total.at(i) << endl ;
-//     }
-// }
-
 vector<string> SendData ::toString(const vector<string> &dataList)
 {
-
     vector<string> dates = getDates();
     vector<int> days = getDays(dates);
     vector<int> total = getTotalVisitsPerDay(dataList);

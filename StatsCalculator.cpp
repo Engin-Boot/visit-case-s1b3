@@ -39,7 +39,7 @@ void StatsCalculator::calculateDailyAverageOverAWeek()
 {
     vector<pair<int, int>> weeklyData = calculateWeeklyFootfallData();
 
-    string dayName[] = {"Monday", "Tuesday", "Wednesday", "Thrusday", "Friday", "Saturday", "Sunday"};
+    string dayName[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thrusday", "Friday", "Saturday"};
 
     for (int i_WeekDay = 0; i_WeekDay < 7; i_WeekDay++)
     {
