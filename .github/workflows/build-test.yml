@@ -16,21 +16,30 @@ jobs:
     
     - name: install cppcheck static analysis
       run: sudo apt-get update && sudo apt-get install -y cppcheck
-      
-    - name: build-test
-      run: g++ -Wall -Wextra -Werror --coverage -o receiver-test Receiver-test.cpp DailyDataEntry.cpp StatsCalculator.cpp WriteCSV.cpp
 
-    - name: build-main
-      run: g++ -Wall -Wextra -Werror -o sender Sender.cpp && g++ -Wall -Wextra -Werror -o receiver Receiver.cpp DailyDataEntry.cpp StatsCalculator.cpp WriteCSV.cpp
+    - name: build-sender-test
+      run:  g++ -Wall -Wextra -Werror --coverage -o sender-test Sender-test.cpp ReadCSV.cpp SendData.cpp
+
+    - name: build-receiver-test
+      run:  g++ -Wall -Wextra -Werror --coverage -o receiver-test Receiver-test.cpp DailyDataEntry.cpp StatsCalculator.cpp WriteCSV.cpp
+
+    - name: build-sender-main
+      run:  g++ -Wall -Wextra -Werror -o sender Sender.cpp ReadCSV.cpp SendData.cpp
+
+    - name: build-receiver-main
+      run:  g++ -Wall -Wextra -Werror -o receiver Receiver.cpp DailyDataEntry.cpp StatsCalculator.cpp WriteCSV.cpp
 
     - name: static analysis
-      run: cppcheck --enable=all --error-exitcode=1 -iReceiver-test.cpp . 
+      run: cppcheck --enable=all --error-exitcode=1 -iReceiver-test.cpp -iSender-test.cpp .
       
-    - name: run-test
+    - name: run-sender-tets
+      run: ./sender-test
+
+    - name: run-receiver-test
       run: ./receiver-test
     
     - name: coverage report
-      run: gcov -r Receiver-test.cpp WriteCSV.cpp DailyDataEntry.cpp StatsCalculator.cpp
+      run: gcov -r Receiver-test.cpp WriteCSV.cpp DailyDataEntry.cpp StatsCalculator.cpp Sender-test.cpp ReadCSV.cpp SendData.cpp
 
     - name: run
       run: ./sender|./receiver
