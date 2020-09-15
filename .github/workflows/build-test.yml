@@ -32,7 +32,7 @@ jobs:
     - name: static analysis
       run: cppcheck --enable=all --error-exitcode=1 -iReceiver-test.cpp -iSender-test.cpp .
       
-    - name: run-sender-tets
+    - name: run-sender-test
       run: ./sender-test
 
     - name: run-receiver-test
