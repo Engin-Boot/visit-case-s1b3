@@ -64,9 +64,10 @@ vector<DailyDataEntry> DailyDataEntry::getDailyDataEntryFromSender(const vector<
     //number of input strings
     unsigned int n = senderData.size();
 
-    //declare vector of DailtDataEntry type of n size
+    //declare vector of DailtDataEntry type
     vector<DailyDataEntry> monthlyEntryData;
 
+    //traverse each vector of string
     for (unsigned int i_singleDayEntry = 0; i_singleDayEntry < n; i_singleDayEntry++)
     {
         //create a DailyDataEntry object having date day numberOfEntries
