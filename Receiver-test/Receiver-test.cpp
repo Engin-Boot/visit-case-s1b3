@@ -1,23 +1,20 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include <string>
-#include "DailyDataEntry.h"
-#include "WriteCSV.h"
-#include "StatsCalculator.h"
+#include "../Receiver/DailyDataEntry.h"
+#include "../Receiver/WriteCSV.h"
+#include "../Receiver/StatsCalculator.h"
 #include <fstream>
 
 using namespace std;
 
 // TEST_CASE("test2")
 // {
-//     DailyDataEntry y;
-
-//     cout << "1\n1/1/2020 0 23" << endl;
-
-//     vector<DailyDataEntry> x = y.getDailyDataEntryFromSender();
-//     REQUIRE(x[0].getDate() == "1/1/2020\0");
-//     REQUIRE(x[0].getDay() == 0);
-//     REQUIRE(x[0].getNumberOfEntries() == 23);
+//     // DailyDataEntry y;
+//     // vector<DailyDataEntry> x = y.getDailyDataEntryFromSender();
+//     // REQUIRE(x[0].getDate() == "1/1/2020");
+//     // REQUIRE(x[0].getDay() == 0);
+//     // REQUIRE(x[0].getNumberOfEntries() == 23);
 // }
 
 TEST_CASE("when a string with 4 words separated by single space is passed in splitStringBySpaces() then it returns a vector containing same 4 words")

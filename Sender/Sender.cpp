@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    string inputCSV = "inputCSV1.csv";
+    string inputCSV = "inputCSV.csv";
     ReadCSV reader(inputCSV, ",");
     vector<string> dataList = reader.readCSVData();
     SendData sender(dataList);

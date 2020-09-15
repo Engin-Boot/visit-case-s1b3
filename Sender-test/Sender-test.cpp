@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
-#include "ReadCSV.h"
-#include "SendData.h"
+#include "../Sender/ReadCSV.h"
+#include "../Sender/SendData.h"
 #include <iostream>
 #include "catch.hpp"
 #include <string>
@@ -10,7 +10,6 @@ using namespace std;
 
 TEST_CASE("When a CSV file is passed to the ReadCSV class, this method stores each row as a string")
 {
-
     string inputCSV = "test-input.csv";
     ReadCSV reader(inputCSV, ",");
     vector<string> dataList = reader.readCSVData();
